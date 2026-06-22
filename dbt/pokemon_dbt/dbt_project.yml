@@ -1,0 +1,16 @@
+name: 'pokemon_dbt'
+version: '1.0.0'
+config-version: 2
+
+profile: 'pokemon_dbt'
+
+model-paths: ["models"]
+
+models:
+  pokemon_dbt:
+    bronze:
+      +materialized: table
+    silver:
+      +materialized: table
+    gold:
+      +materialized: table

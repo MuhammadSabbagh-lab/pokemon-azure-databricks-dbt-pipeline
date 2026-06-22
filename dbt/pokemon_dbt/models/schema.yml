@@ -1,0 +1,54 @@
+version: 2
+
+models:
+  - name: bronze_pokemon
+    description: "dbt Bronze model that reads curated Pokémon data from the Databricks engineering Gold table."
+    columns:
+      - name: pokemon_id
+        description: "Unique Pokémon ID."
+        tests:
+          - not_null
+          - unique
+
+      - name: pokemon_name
+        description: "Pokémon name."
+        tests:
+          - not_null
+
+      - name: primary_type
+        description: "Primary Pokémon type."
+        tests:
+          - not_null
+
+  - name: silver_pokemon_type_stats
+    description: "dbt Silver model that aggregates Pokémon statistics by primary type."
+    columns:
+      - name: primary_type
+        description: "Primary Pokémon type."
+        tests:
+          - not_null
+          - unique
+
+      - name: pokemon_count
+        description: "Number of Pokémon for each primary type."
+
+      - name: avg_total_base_stat
+        description: "Average total base stat for each primary type."
+
+  - name: gold_pokemon_type_dashboard
+    description: "Final dbt Gold model used for Databricks SQL dashboard visualisations."
+    columns:
+      - name: primary_type
+        description: "Primary Pokémon type."
+        tests:
+          - not_null
+          - unique
+
+      - name: pokemon_count
+        description: "Number of Pokémon for each primary type."
+
+      - name: avg_attack
+        description: "Average attack stat by primary type."
+
+      - name: avg_speed
+        description: "Average speed stat by primary type."

@@ -1,3 +1,7 @@
+# Databricks notebook source
+# Pokémon Medallion Pipeline
+# Raw JSON from ADLS Gen2 → Bronze → Silver → Gold Delta tables
+
 from pyspark.sql.functions import current_timestamp, col
 
 # =====================================

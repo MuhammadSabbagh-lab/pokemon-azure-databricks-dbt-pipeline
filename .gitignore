@@ -216,3 +216,31 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# -----------------------------
+# dbt
+# -----------------------------
+dbt/**/target/
+dbt/**/dbt_packages/
+dbt/**/logs/
+dbt/**/profiles.yml
+
+# -----------------------------
+# Databricks
+# -----------------------------
+.databricks/
+*.dbc
+
+# -----------------------------
+# Secrets / credentials
+# -----------------------------
+*.pem
+*.key
+*.token
+credentials.json
+azure_credentials.json
+
+# -----------------------------
+# Mac system files
+# -----------------------------
+.DS_Store
